@@ -1,180 +1,44 @@
+require("sogist") -- my custom settings in the lua directory
+
 -- strongly advised from vim tree:
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd('set termguicolors') -- for nvim-colorizer
-
--- LAZY PACKAGE MANAGER --
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-	"git",
-	"clone",
-	"--filter=blob:none",
-	"https://github.com/folke/lazy.nvim.git",
-	"--branch=stable", -- latest stable release
-	lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-	-- Colorschemes
-	{ "ellisonleao/gruvbox.nvim", lazy=true }, -- lazy means it will load when the colorscheme is selected
-	{ "catppuccin/nvim", lazy=true },--, opts={ integrations={ gitsigns=true, nvimtree=true, telescope=true } }, config=true },
-	{ "folke/tokyonight.nvim", lazy=true },
-	{ "shaunsingh/nord.nvim", lazy=true },
-	{ "marko-cerovac/material.nvim", lazy=true },
-	{ "shaunsingh/seoul256.nvim", lazy=true},
-
-	-- Pleasing Plugins
-	{ "folke/drop.nvim", opts={theme="snow"},config=true }, -- makes snow fall when idle in nvim
-	{ "goolord/alpha-nvim", dependencies={ "nvim-tree/nvim-web-devicons" }, opts, config=function()require("alpha").setup(require'alpha.themes.dashboard'.config)end }, -- customizable neovim greeter
-	{ "nvim-lualine/lualine.nvim", dependencies='nvim-tree/nvim-web-devicons', config=true }, -- nvim version of airline
-
-	-- Useful plugins
-	{ "iamcco/markdown-preview.nvim", build=function() vim.fn["mkdp#util#install"]() end, config=function() vim.g.mkdp_filetypes = { "markdown" }; vim.g.mkdp_browser='/usr/bin/firefox' end, ft="markdown" }, -- use <leader>mp to view the current markdown file
-	{ "junegunn/vim-easy-align" }, -- use gaip to align the current block of code
-	{ "nvim-lua/plenary.nvim" }, -- telescope dependency, a library for neovim plugins
-	{ "nvim-telescope/telescope.nvim", dependencies={ "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim"} }, -- need to install sharkdp/fd and BurntSushi/ripgrep on your machine, fuzzy finder and searcher
-	{ "nvim-treesitter/nvim-treesitter", build=":TSUpdate", config=function() require'nvim-treesitter.configs'.setup { parser_install_dir = "~/.config/nvim/nvim-data/lazy/nvim-treesitter",highlight = { enable = true, additional_vim_regex_highlighting = false}, }end }, -- accurate syntax hilighting, indentation, and other editing features
-	{ "windwp/nvim-autopairs", config=true }, -- automatically pairs quotes, parenthesis, brackets etc.
-	{ "lewis6991/gitsigns.nvim", config=true }, -- git decoations for added, removed, and changed lines
-	{ "numToStr/Comment.nvim", config=true }, -- binds gcc toggle comment for current line
-	{ "norcalli/nvim-colorizer.lua", opts = {'*'}, config = true }, -- Highlights the background of color codes eg: #558817
-	{ "lukas-reineke/indent-blankline.nvim", opts={show_current_context = true, show_current_context_start = true}, config=true}, -- adds indentation guides
-	{ "nvim-tree/nvim-tree.lua", view = {width = 30,}, renderer = {group_empty = true,},filters = {dotfiles = true,}, config=true }, -- file explorer
-	{ "neoclide/coc.nvim", branch="release" }, -- autocomplete
-	{ "honza/vim-snippets" }, -- snippets
-	{ "neoclide/coc-snippets" }, -- snippetscomplete
-	{ "lervag/vimtex",  ft="tex" }, -- LaTex
-	{ "kaarmu/typst.vim", ft='typst', lazy=false }, --typst
-	{ "github/copilot.vim", lazy=false },
-	{ "folke/which-key.nvim", event = "VeryLazy", init = function() vim.o.timeout=true vim.o.timeoutlen=100 end, opts = {}},
-	{ "folke/zen-mode.nvim", opts = {}},
-	{ "akinsho/toggleterm.nvim", verison = "*", config=true},
-	{ "neoclide/vim-jsx-improve" }
-	--{ "williamboman/mason.nvim", ft='typst', lazy=false, config=true }, --typst
-	--{ "williamboman/mason-lspconfig.nvim", ft='typst', lazy=false, config=true }, --typst
-})
-
-
 -- VIM SETTINGS --
-vim.cmd('colorscheme catppuccin')            -- colorscheme
-vim.cmd('filetype indent on')                -- makes indents different for specific types
-vim.cmd('let mapleader = " "')               -- map leader to space
-vim.cmd('set backspace=2')                   -- makes backspace work
-vim.cmd('set number')                        -- line numbers
-vim.cmd('set relativenumber')                        -- relative line numbers
-vim.cmd('set tabstop=4')
-vim.cmd('set shiftwidth=4')
-vim.cmd('set encoding=utf-8')
-vim.cmd('set noexpandtab')                   -- tabs are good
-vim.cmd('set smarttab')                      -- aligns to space when tabbing
-vim.cmd('set autoindent')                    -- copy indent from above line
-vim.cmd('set hlsearch')                      -- highlight search
-vim.cmd('set incsearch')                     -- highlight search while typing
-vim.cmd('set showmatch')                     -- show matching brackets
-vim.cmd('set history=50')                    -- stores last 50 commands
-vim.cmd('set ignorecase')                    -- search ignores case sensitive
-vim.cmd('set autoindent')                    -- copies indentation from previous line. TODO check if you like this
-vim.cmd('set ruler')                         -- shows cursor position
-vim.cmd('set encoding=utf8')                 -- non-ascii characters are encoded with utf8 by default
-vim.cmd('set showcmd')                       -- show length of visual selections
-vim.cmd('set complete=.,w,b,u')              -- makes autocomplete faster
-vim.cmd('set splitright')                    -- creates vertical splits to the right
-vim.cmd('set splitbelow')                    -- creates horizontal splits below
-vim.cmd('set tabpagemax=30')                 -- show up to 30 tabs
-vim.cmd('set wrap')                          -- wrap lines to fit window
-vim.cmd('set lazyredraw')                    -- redraws the screen less often
-vim.cmd('set showcmd')                       -- shows command in bottom no matter what
-vim.cmd('set cursorline')                    -- puts a line where the cursor is
-vim.cmd('set visualbell')                    -- enables visual bell
-vim.cmd('set t_vb=')                         -- turns off the visual bell
-vim.cmd('set wildmenu')                      -- autocomplete menu
-vim.cmd('set foldenable')                    -- allows folding of codeblocks
-vim.cmd('set foldlevelstart=10')             -- opens folds by default
-vim.cmd('set foldmethod=indent')             -- folds based on indent (for python)
-vim.cmd('let g:netrw_mouse_maps=0')          -- ignore mouse clicks when browsing directories
---vim.cmd('set timeoutlen=2500')               -- makes the timeout a bit longer (2.5 seconds)
---vim.cmd('set timeoutlen=1000 ttimeoutlen=0') -- disable escape keys (faster shift+o)
-vim.cmd('set colorcolumn=100')               -- places a column at X characters into the file
-vim.cmd('set confirm')                       -- Asks if you want to save before closing file
-vim.api.nvim_set_keymap('i', '<C-a>', 'copilot#Accept("<CR>")', {expr=true, silent=true, script=true})
-vim.cmd('let g:copilot_no_tab_map= v:true')          -- ignore mouse clicks when browsing directories
-
-
--- MAPPINGS --
-function map(mode, lhs, rhs, opts)
-local options = { noremap = true }
-if opts then -- see :h map-arguments for more info
-	options = vim.tbl_extend("force", options, opts)
-end
-vim.keymap.set(mode, lhs, rhs, options)
-end
-
--- F keys
-map("n", "<F1>", ":h ")                                                                     -- help on some function
-map("n", "<F2>", ":tabe ")                                                                  -- open a file in a new tab
-map("n", "<F3>", ":w<CR>")                                                                  -- save current file
-map("n", "<F4>", ":q<CR>")                                                                  -- close current file
-map("n", "<S-F4>", ":q!<CR>")                                                               -- close current file (without saving!)
-map("n", "<F8>", ":noh<CR>")                                                        -- stop highlight search
-map("n", "<F11>", "!make")                                                                  -- run first make rule/target
-map("n", "<F12>", ":w<CR>:!gcc -o placeholder % -lm && ./placeholder && rm -f placeholder<CR>") -- run current C file (Does not work for multiple files)
-map('n', '<leader>0', ":tabe ~/.config/nvim/init.lua<CR>", {}) -- open init.lua
-map('n', '<leader>9', ":!make test<CR>", {}) -- run `make test`
-
--- Quality of Life
-map("n", ";", ":")        -- saves on pressing shift for :
-map("n", "<C-k>", "<C-w>k") -- move up a window
-map("n", "<C-j>", "<C-w>j") -- move down a window
-map("n", "<C-h>", "<C-w>h") -- move left a window
-map("n", "<C-l>", "<C-w>l") -- move right a window
-map("n", "<C-Up>", ":resize +2<CR>") -- resize window up
-map("n", "<C-Down>", ":resize -2<CR>") -- resize window down
-map("n", "<C-Left>", ":vertical resize +2<CR>") -- resize window left
-map("n", "<C-Right>", ":vertical resize -2<CR>") -- resize window right
-map("n", "<leader>h", ":split<CR>") -- split window horizontally
-map("n", "<leader>v", ":vsplit<CR>") -- split window vertically
-map("n", "<leader>q", ":q<CR>") -- close current window
-map("n", "<leader>Q", ":q!<CR>") -- close current window (without saving!)
-map("n", "<leader>t", ":ToggleTerm size=10 direction=horizontal<CR>") -- open terminal
-map("n", "<leader>w", ":w<CR>") -- save current file
-map("n", "<leader>W", ":wa<CR>") -- save all files
+--require("sogist.remap")
 
 -- terminal key mapping
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n><C-w>k', { noremap = true, silent = true })
 
 -- Easy Align
-map("n", "ga", "<Plug>(EasyAlign)") -- activate easy align. Tip: use gaip to select the inner paragraph for easy align
+-- 
+vim.keymap.set("n", "ga", "<Plug>(EasyAlign)") -- activate easy align. Tip: use gaip to select the inner paragraph for easy align
 
 -- Telescope
 local builtin = require('telescope.builtin')
-map('n', '<leader>ff', builtin.find_files, {}) -- find file
-map('n', '<leader>fg', builtin.live_grep, {}) -- find grep
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {}) -- find file
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {}) -- find grep
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {}) -- find buffer
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {}) -- find help tags
 
 -- Telescope undo
-map('n', '<leader>u', ":Telescope undo<CR>", {})
+--vim.keymap.set('n', '<leader>u', ":Telescope undo<CR>", {})
 
 -- Lazy
-map('n', '<leader>l', ":Lazy<CR>", {})
+vim.keymap.set('n', '<leader>l', ":Lazy<CR>", {})
 
 -- Comment
-map('n', '<leader>cc', "gcc", {})
+vim.keymap.set('n', '<leader>cc', "gcc", {})
 
 -- Tree
-map('n', '<leader>e',  ":NvimTreeToggle<CR>", {})
+vim.keymap.set('n', '<leader>e',  ":NvimTreeToggle<CR>", {})
 
 -- Markdown Preview
-map('n', '<leader>mp', ":MarkdownPreview<CR>", {}) -- markdown preview
-map('n', '<leader>ms', ":MarkdownPreviewStop<CR>", {}) -- markdown stop
-map('n', '<leader>mt', ":MarkdownPreviewToggle<CR>", {}) -- markdown toggle
+vim.keymap.set('n', '<leader>mp', ":MarkdownPreview<CR>", {}) -- markdown preview
+vim.keymap.set('n', '<leader>ms', ":MarkdownPreviewStop<CR>", {}) -- markdown stop
+vim.keymap.set('n', '<leader>mt', ":MarkdownPreviewToggle<CR>", {}) -- markdown toggle
 
 -- ZenMode
-map('n', '<leader>z', ":ZenMode<CR>", {}) -- markdown toggle
+vim.keymap.set('n', '<leader>z', ":ZenMode<CR>", {}) -- markdown toggle
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
