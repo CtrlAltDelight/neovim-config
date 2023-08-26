@@ -38,3 +38,5 @@ vim.cmd('let g:netrw_mouse_maps=0')          -- ignore mouse clicks when browsin
 vim.cmd('set colorcolumn=100')               -- places a column at X characters into the file
 vim.cmd('set confirm')                       -- Asks if you want to save before closing file
 -- termguicolors is set inside of lazy.lua
+
+vim.api.nvim_create_user_command('Newc', ":normal i#include <stdio.h><CR>#include <stdlib.h><CR>#include <stdbool.h><CR>#include <string.h><CR>#include <assert.h><CR><CR>int main(int argc, char* argv[]) {<CR><CR><TAB>return EXIT_SUCCESS;<CR>}<CR>/* vim: set tabstop=4 shiftwidth=4 fileencoding=utf-8 noexpandtab: */<C-Up><C-Up><C-Up><tab>", {}) -- inserts boilerplate for a new C program

@@ -42,9 +42,9 @@ require("lazy").setup({
 	{ "norcalli/nvim-colorizer.lua", opts = {'*'}, config = true }, -- Highlights the background of color codes eg: #558817
 	{ "lukas-reineke/indent-blankline.nvim", opts={show_current_context = true, show_current_context_start = true}, config=true}, -- adds indentation guides
 	{ "nvim-tree/nvim-tree.lua", view = {width = 30,}, renderer = {group_empty = true,},filters = {dotfiles = true,}, config=true }, -- file explorer
-	{ "neoclide/coc.nvim", branch="release" }, -- autocomplete
+	--{ "neoclide/coc.nvim", branch="release" }, -- autocomplete
 	{ "honza/vim-snippets" }, -- snippets
-	{ "neoclide/coc-snippets" }, -- snippetscomplete
+	--{ "neoclide/coc-snippets" }, -- snippetscomplete
 	{ "lervag/vimtex",  ft="tex" }, -- LaTex
 	{ "kaarmu/typst.vim", ft='typst', lazy=false }, --typst
 	{ "github/copilot.vim", lazy=false },
@@ -54,6 +54,22 @@ require("lazy").setup({
 	{ "neoclide/vim-jsx-improve" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" },
-	--{ "williamboman/mason.nvim", ft='typst', lazy=false, config=true }, --typst
-	--{ "williamboman/mason-lspconfig.nvim", ft='typst', lazy=false, config=true }, --typst
+      -- LSP Support
+      	{
+	  'VonHeikemen/lsp-zero.nvim',
+	  branch = 'v2.x',
+	  dependencies = {
+	    -- LSP Support
+	    {'neovim/nvim-lspconfig'},             -- Required
+	    {'williamboman/mason.nvim'},           -- Optional
+	    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+	    -- Autocompletion
+	    {'hrsh7th/nvim-cmp'},     -- Required
+	    {'hrsh7th/cmp-nvim-lsp'}, -- Required
+	    {'L3MON4D3/LuaSnip'},     -- Required
+	  }
+	}
 })
+
+vim.keymap.set('n', '<leader>l', ":Lazy<CR>", {})
