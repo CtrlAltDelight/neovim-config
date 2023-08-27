@@ -11,7 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " " -- set leader key to space
 vim.cmd('set termguicolors') -- for nvim-colorizer #d2a23e
 require("lazy").setup({
 	-- Colorschemes

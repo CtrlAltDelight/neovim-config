@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>0', ":tabe ~/.config/nvim/init.lua<cr>", {})       
 vim.keymap.set('n', '<leader>9', ":!make test<cr>", {})                                                        -- run `make test`
 
 -- Quality of Life
+vim.g.mapleader = " " -- set leader key to space
 vim.keymap.set("n", ";",         ":")                       -- saves on pressing shift for :
 vim.keymap.set("n", "<C-k>",     "<C-w>k")                  -- move up a window
 vim.keymap.set("n", "<C-j>",     "<C-w>j")                  -- move down a window
