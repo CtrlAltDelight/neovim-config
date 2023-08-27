@@ -11,6 +11,7 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
+	'clangd',
 })
 
 --lsp.set_sign_icons({
