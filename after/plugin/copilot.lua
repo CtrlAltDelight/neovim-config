@@ -1,8 +1,9 @@
 -- Change copilot completion keymap to <C-a>
 vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
 
-vim.api.nvim_set_keymap('i', '<C-a>', '<Plug>(copilot#Accept("<CR>"))', {expr=true, silent=true})
---vim.keymap.set("i", "<C-n>", "<Plug>(copilot-next)", {expr=true, silent=true})
---vim.keymap.set("i", "<C-p>", "<Plug>(copilot-previous)", {expr=true, silent=true})
--- Conflicting keybinds with lsp
+vim.api.nvim_set_keymap('i', '<C-k>', 'copilot#Accept("<CR>")', {expr=true, silent=true})
+vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>(copilot-next)', {silent=true})
+vim.api.nvim_set_keymap('i', '<C-j>', '<Plug>(copilot-previous)', {silent=true})
+
 
