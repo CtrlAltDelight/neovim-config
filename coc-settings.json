@@ -1,2 +1,19 @@
 {
+	"prettier.requireConfig": true,
+
+	"tslint.enable": true,
+	"tslint.autoFixOnSave": true,
+
+	"coc.preferences.formatOnSaveFiletypes": [
+			"javascript", 
+			"typescript", 
+			"json",
+			"javascriptreact",
+			"typescriptreact",
+			"markdown",
+			"css",
+			"Markdown",
+			"html",
+  ],
+  "snippets.ultisnips.pythonPrompt": false,
 }
