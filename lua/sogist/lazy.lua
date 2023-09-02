@@ -14,19 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 vim.cmd('set termguicolors') -- for nvim-colorizer #d2a23e
 require("lazy").setup({
 	-- Colorschemes
-	{ "ellisonleao/gruvbox.nvim" }, -- lazy means it will load when the colorscheme is selected
+	{ "ellisonleao/gruvbox.nvim", }, -- lazy means it will load when the colorscheme is selected
 	{ "catppuccin/nvim", priority=1000 },
-	{ "folke/tokyonight.nvim" },
-	{ "shaunsingh/nord.nvim" },
-	{ "marko-cerovac/material.nvim" },
-	{ "shaunsingh/seoul256.nvim" },
-	{ "shaunsingh/nord.nvim" },
-	{ "rose-pine/neovim" },
-	{ "sainnhe/sonokai" },
-	{ "sainnhe/edge" },
-	{ "sainnhe/gruvbox-material" },
-	{ "sainnhe/everforest" },
-	{ "askfiy/visual_studio_code" },
+	{ "folke/tokyonight.nvim", },
+	{ "shaunsingh/nord.nvim", },
+	{ "marko-cerovac/material.nvim", },
+	{ "shaunsingh/seoul256.nvim", },
+	{ "shaunsingh/nord.nvim", },
+	{ "rose-pine/neovim", },
+	{ "sainnhe/sonokai", },
+	{ "sainnhe/edge", },
+	{ "sainnhe/gruvbox-material", },
+	{ "sainnhe/everforest", },
+	{ "askfiy/visual_studio_code", },
 
 	-- Pleasing Plugins
 	{ "folke/drop.nvim", opts={theme="snow"},config=true }, -- makes snow fall when idle in nvim
@@ -48,17 +48,25 @@ require("lazy").setup({
 	{ "lervag/vimtex",  ft="tex" },
 	{ "kaarmu/typst.vim", ft='typst', lazy=false },
 	{ "github/copilot.vim", lazy=false },
-	{ "folke/which-key.nvim", event = "VeryLazy", init = function() vim.o.timeout=true vim.o.timeoutlen=100 end, opts = {}},
+	{ "folke/which-key.nvim", event = "VeryLazy", init = function() vim.o.timeout=true vim.o.timeoutlen=750 end, opts = {}},
 	{ "folke/zen-mode.nvim", opts = {}},
 	{ "akinsho/toggleterm.nvim", verison = "*", config=true},
 	{ "neoclide/vim-jsx-improve" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" },
 	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
+	{ "dstein64/vim-startuptime" },
 
 	-- LSP Support
 	{ "neoclide/coc.nvim", branch="release" }, -- autocomplete
 	{ "neoclide/coc-snippets" }, -- snippetscomplete
+	{ "neoclide/coc-tsserver" },
+	{ "neoclide/coc-prettier" },
+	{ "neoclide/coc-eslint" },
+	{ "neoclide/coc-tslint" },
+	{ "neoclide/coc-css" },
+	{ "neoclide/coc-lists" },
+	{ "neoclide/coc-highlight" },
 })
 
 vim.keymap.set('n', '<leader>l', ":Lazy<CR>", {})
