@@ -21,6 +21,7 @@ vim.opt.ignorecase = true
 vim.opt.showmatch = true
 
 vim.opt.termguicolors = true
+vim.opt.wildoptions = 'pum'
 
 vim.opt.scrolloff = 8
 

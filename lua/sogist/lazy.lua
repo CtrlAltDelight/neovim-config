@@ -14,19 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 vim.cmd('set termguicolors') -- for nvim-colorizer #d2a23e
 require("lazy").setup({
 	-- Colorschemes
-	{ "ellisonleao/gruvbox.nvim", lazy=true }, -- lazy means it will load when the colorscheme is selected
-	{ "catppuccin/nvim", lazy=true, priority=1000 },
-	{ "folke/tokyonight.nvim", lazy=true },
-	{ "shaunsingh/nord.nvim", lazy=true },
-	{ "marko-cerovac/material.nvim", lazy=true },
-	{ "shaunsingh/seoul256.nvim", lazy=true},
-	{ "shaunsingh/nord.nvim", lazy=true},
-	{ "rose-pine/neovim", lazy=true},
-	{ "sainnhe/sonokai", lazy=true},
-	{ "sainnhe/edge", lazy=true},
-	{ "sainnhe/gruvbox-material", lazy=true},
-	{ "sainnhe/everforest", lazy=true},
-	{ "askfiy/visual_studio_code", lazy=true},
+	{ "ellisonleao/gruvbox.nvim" }, -- lazy means it will load when the colorscheme is selected
+	{ "catppuccin/nvim", priority=1000 },
+	{ "folke/tokyonight.nvim" },
+	{ "shaunsingh/nord.nvim" },
+	{ "marko-cerovac/material.nvim" },
+	{ "shaunsingh/seoul256.nvim" },
+	{ "shaunsingh/nord.nvim" },
+	{ "rose-pine/neovim" },
+	{ "sainnhe/sonokai" },
+	{ "sainnhe/edge" },
+	{ "sainnhe/gruvbox-material" },
+	{ "sainnhe/everforest" },
+	{ "askfiy/visual_studio_code" },
 
 	-- Pleasing Plugins
 	{ "folke/drop.nvim", opts={theme="snow"},config=true }, -- makes snow fall when idle in nvim
@@ -54,6 +54,7 @@ require("lazy").setup({
 	{ "neoclide/vim-jsx-improve" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" },
+	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
 
 	-- LSP Support
 	{ "neoclide/coc.nvim", branch="release" }, -- autocomplete
