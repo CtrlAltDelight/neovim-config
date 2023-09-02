@@ -1,3 +1,11 @@
+return {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+};
+
+--[[
 local dashboard = require "alpha.themes.dashboard"
 dashboard.section.header.val = {
 '                                        ,   ,                                   ',
@@ -44,3 +52,4 @@ dashboard.section.header.val = {
 '            \\`"""""""""""""\'         \'           \'           \'             ',
 
 }
+--]]
