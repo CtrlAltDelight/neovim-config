@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.cmd('set termguicolors') -- for nvim-colorizer #d2a23e
-require("lazy").setup('plugins')
+require("lazy").setup({{import = "plugins"}, {import = "plugins.lsp"}})
 --[[{
 
 	-- LSP Support
