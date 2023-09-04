@@ -78,8 +78,8 @@ return {
 
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 
 		-- configure css server
@@ -145,6 +145,18 @@ return {
 					},
 				},
 			},
+		})
+
+		-- configure c server
+		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure rust server
+		lspconfig["rust_analyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }

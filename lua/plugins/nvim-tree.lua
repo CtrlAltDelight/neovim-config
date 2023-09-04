@@ -5,7 +5,7 @@ local function my_on_attach(bufnr)
 	end
 
 	api.config.mappings.default_on_attach(bufnr)
-	vim.keymap.set("n", "<LeftRelease>", api.node.open.edit, opts("Open"))
+	vim.keymap.set("n", "<LeftRelease>", api.node.open.edit, opts("Open")) -- One left click open
 end
 
 return {
@@ -16,12 +16,27 @@ return {
 		},
 		version = "*",
 		lazy = false,
-		view = { width = 30 },
-		renderer = { group_empty = true },
-		filters = { dotfiles = true },
-		on_attach = my_on_attach,
 		config = function()
 			require("nvim-tree").setup({
+				view = { width = 30 },
+				renderer = {
+					group_empty = true,
+					icons = {
+						glyphs = {
+							git = {
+								unstaged = "",
+								staged = "",
+								unmerged = "",
+								renamed = "",
+								untracked = "󰘓",
+								deleted = "󰆴",
+								ignored = "󰈉",
+							},
+							folder = { default = "", open = "" },
+						},
+					},
+				},
+				filters = { dotfiles = true },
 				on_attach = my_on_attach,
 			})
 
