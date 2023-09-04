@@ -1,4 +1,4 @@
-vim.cmd('colorscheme rose-pine')
+vim.cmd("colorscheme rose-pine")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -21,11 +21,11 @@ vim.opt.ignorecase = true
 vim.opt.showmatch = true
 
 vim.opt.termguicolors = true
-vim.opt.wildoptions = 'pum'
+vim.opt.wildoptions = "pum"
 
 vim.opt.scrolloff = 8
 
-vim.opt.colorcolumn = '100'
+vim.opt.colorcolumn = "100"
 vim.opt.cursorline = true
 
 vim.opt.lazyredraw = true
@@ -38,6 +38,10 @@ vim.opt.ruler = true
 
 vim.opt.confirm = true
 
-vim.api.nvim_create_user_command('Newc', ":normal i#include <stdio.h><CR>#include <stdlib.h><CR>#include <stdbool.h><CR>#include <string.h><CR>#include <assert.h><CR><CR>int main(int argc, char* argv[]) {<CR><CR><TAB>return EXIT_SUCCESS;<CR>}<CR>/* vim: set tabstop=4 shiftwidth=4 fileencoding=utf-8 noexpandtab: */<C-Up><C-Up><C-Up><tab>", {}) -- inserts boilerplate for a new C program
+vim.api.nvim_create_user_command(
+	"Newc",
+	":normal i#include <stdio.h><CR>#include <stdlib.h><CR>#include <stdbool.h><CR>#include <string.h><CR>#include <assert.h><CR><CR>int main(int argc, char* argv[]) {<CR><CR><TAB>return EXIT_SUCCESS;<CR>}<CR>/* vim: set tabstop=4 shiftwidth=4 fileencoding=utf-8 noexpandtab: */<C-Up><C-Up><C-Up><tab>",
+	{}
+) -- inserts boilerplate for a new C program
 
 -- termguicolors is set inside of lazy.lua
