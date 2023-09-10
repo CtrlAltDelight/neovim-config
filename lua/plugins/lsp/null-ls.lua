@@ -23,7 +23,20 @@ return {
 				--	to disable file types use
 				--	"formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
 				formatting.prettier.with({
-					extra_filetypes = { "svelte" },
+					filetypes = {
+						"javascript",
+						"typescript",
+						"css",
+						"scss",
+						"html",
+						"json",
+						"yaml",
+						"markdown",
+						"graphql",
+						"md",
+						"txt",
+					},
+					extra_filetypes = { "svelte", "react" },
 				}), -- js/ts formatter
 				formatting.stylua, -- lua formatter
 				diagnostics.eslint_d.with({ -- js/ts linter
