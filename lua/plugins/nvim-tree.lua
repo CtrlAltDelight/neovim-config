@@ -36,7 +36,7 @@ return {
 						},
 					},
 				},
-				filters = { dotfiles = true },
+				filters = { dotfiles = false },
 				on_attach = my_on_attach,
 			})
 
