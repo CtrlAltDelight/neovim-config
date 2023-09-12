@@ -7,10 +7,10 @@ require("sogist.lazy")
 require("sogist.vim-settings")
 
 local has = vim.fn.has
-local is_mac = has "macunix"
-local is_linux = has "unix"
-local is_win = has "win32"
-local is_wsl = has "wsl"
+local is_mac = has("macunix")
+local is_linux = has("unix")
+local is_win = has("win32")
+local is_wsl = has("wsl")
 
 if is_linux then
 	require("sogist.linux")
@@ -25,4 +25,4 @@ if is_wsl then
 	require("sogist.wsl")
 end
 
-print("Hello from Sogist!")
+print("Hello from CtrlAltDelight!")

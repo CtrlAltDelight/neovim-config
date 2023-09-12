@@ -1,4 +1,5 @@
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme everforest")
+vim.cmd("set background=light")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
