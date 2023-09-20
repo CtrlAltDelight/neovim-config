@@ -1,6 +1,6 @@
 return {
 	{ "ellisonleao/gruvbox.nvim" },
-	{ "catppuccin/nvim", priority = 1000 },
+	{ "catppuccin/nvim" },
 	{ "folke/tokyonight.nvim" },
 	{ "shaunsingh/nord.nvim" },
 	{ "marko-cerovac/material.nvim" },
@@ -10,7 +10,7 @@ return {
 	{ "sainnhe/sonokai" },
 	{ "sainnhe/edge" },
 	{ "sainnhe/gruvbox-material" },
-	{ "sainnhe/everforest" },
+	{ "sainnhe/everforest", priority = 1000 },
 	{ "askfiy/visual_studio_code" },
 	{ "uloco/bluloco.nvim", dependencies = { "rktjmp/lush.nvim" } },
 }
