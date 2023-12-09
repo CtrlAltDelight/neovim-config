@@ -35,6 +35,7 @@ return {
 						"graphql",
 						"md",
 						"txt",
+						"typescriptreact",
 					},
 					extra_filetypes = { "svelte", "react" },
 				}), -- js/ts formatter

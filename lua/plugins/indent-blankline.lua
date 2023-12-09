@@ -1,10 +1,28 @@
 return {
-	{ 
-		"lukas-reineke/indent-blankline.nvim", 
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
 		opts = {
-			show_current_context = true, 
-			show_current_context_start = false 
-		}, 
-		config = true
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+			scope = { enabled = false },
+			exclude = {
+				filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+					"lazyterm",
+				},
+			},
+		},
 	},
 }

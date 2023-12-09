@@ -1,5 +1,4 @@
-vim.cmd("colorscheme everforest")
-vim.cmd("set background=light")
+vim.cmd("colorscheme tokyonight")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -29,7 +28,7 @@ vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "100"
 vim.opt.cursorline = true
 
-vim.opt.lazyredraw = true
+--vim.opt.lazyredraw = true
 vim.opt.updatetime = 50
 
 vim.opt.history = 50
