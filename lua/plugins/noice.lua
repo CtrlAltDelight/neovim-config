@@ -32,6 +32,17 @@ return {
 					lsp_doc_border = false, -- add a border to hover docs and signature help
 				},
 			})
+			require("lualine").setup({
+				sections = {
+					lualine_x = {
+						{
+							require("noice").api.statusline.mode.get,
+							cond = require("noice").api.statusline.mode.has,
+							color = { fg = "#ff9e64" },
+						},
+					},
+				},
+			})
 		end,
 	},
 }
