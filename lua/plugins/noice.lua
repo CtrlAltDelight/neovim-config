@@ -15,6 +15,12 @@ return {
 		},
 		config = function()
 			require("noice").setup({
+				messages = {
+					enabled = false, -- disables Noice messages UI
+				},
+				notify = {
+					enabled = false, -- disables Noice messages UI
+				},
 				lsp = {
 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 					override = {
