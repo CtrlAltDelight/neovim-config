@@ -6,6 +6,5 @@ return {
 	{ "kaarmu/typst.vim", ft = "typst", lazy = false },
 	{ "akinsho/toggleterm.nvim", verison = "*", config = true },
 	{ "neoclide/vim-jsx-improve" },
-	{ "mbbill/undotree" },
 	{ "dstein64/vim-startuptime" },
 }
