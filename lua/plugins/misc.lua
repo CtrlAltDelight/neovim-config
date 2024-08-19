@@ -3,8 +3,7 @@ return {
 
 	-- Useful plugins
 	{ "lervag/vimtex", ft = "tex" },
-	{ "kaarmu/typst.vim", ft = "typst", lazy = false },
-	{ "akinsho/toggleterm.nvim", verison = "*", config = true },
+	--{ "kaarmu/typst.vim", ft = "typst", lazy = false },
 	{ "neoclide/vim-jsx-improve" },
 	{ "dstein64/vim-startuptime" },
 }

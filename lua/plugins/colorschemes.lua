@@ -57,4 +57,5 @@ return {
 		"folke/tokyonight.nvim",
 		opts = { style = "moon" },
 	},
+	{ "rebelot/kanagawa.nvim" },
 }

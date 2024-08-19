@@ -1,8 +1,5 @@
-vim.g.loaded_netrw = 1 -- these need to happen first for nvim-tree to work
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
+vim.opt.termguicolors = true -- for nvim-colorizer (example: #d2a23e)
 
-require("sogist.remap") -- This must come first because it defines leader key
 require("sogist.lazy")
 require("sogist.vim-settings")
 
@@ -25,4 +22,4 @@ if is_wsl then
 	require("sogist.wsl")
 end
 
-print("Hello from CtrlAltDelight!")
+print("Rip and tear until it is done.")
